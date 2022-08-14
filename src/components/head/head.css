@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
+
+
+/* Variables */
+:root {
+  --font-family: "Roboto", sans-serf;
+  --normal-font: 400;
+  --bold-font: 700;
+  --bolder-font: 900;
+  --bg-color: #fcfcfc;
+  --primary-color: #1c26df;
+  --secondary-color: #ff7235;
+  --primary-shadow: #8b8eaf;
+  --secondary-shadow: #a17a69;
+  --bottom-margin: 0.5rem;
+  --bottom-margin-2: 1rem;
+  --line-height: 1.7rem;
+  --transition: 0.3s;
+  min-width: 380px;
+}
+
+.transparent-text {
+  text-decoration: none;
+    font-family: 'Rubik One', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    background: #2E2F45;
+    display: table;
+    margin-left: 5%;
+    color: white;
+    border-radius: 5px;
+    margin-top: -1%;
+    padding: 5px 10px;
+  }
+
+
+/* CSS Resets */
+* {
+  margin: 0;
+  padding: 0;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+  /* border: 2px solid red; */
+}
+
+
+
+.tegA {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.tegA:hover {
+  color: var(--secondary-color);
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+
+.navi {
+  
+  position: sticky;
+
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3.5rem;
+  background-color: var(--bg-color);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+@media screen and (max-width: 460px) {
+
+.transparent-text {
+  margin-left: 20%;
+}}
+
+@media screen and (max-width: 485px) {
+  .transparent-text {
+
+    font-size: 20px;
+    margin-top:0%;
+  margin-left: 10%;
+  }
+
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 720px) {
+
+
+  .transparent-text {
+
+  
+    margin-left: 7%;
+    }
+
+
+
+
+  .bio {
+    margin-top: -7rem;
+    width: 20.5rem;
+  }
+
+  .more-about {
+    margin-top: 2rem;
+    padding: 1rem 3.5rem;
+  }
+
+
+
+
+
+  .icon {
+    width: 5.875rem;
+    height: 5.25rem;
+  }
+
+  .projects-container {
+    flex-direction: column;
+  }
+
+  .project-container {
+    width: 20.875rem;
+  }
+
+  .contact-form-container {
+    max-width: 23.75rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .transparent-text {
+    font-size:20px;
+
+  }
+
+
+  .bio {
+    width: 18.3rem;
+  }
+
+  .project-container {
+    width: 17.875rem;
+  }
+
+  .contact-form-container {
+    max-width: 17.75rem;
+  }
+}
+
+
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  border-radius:0px 10px 10px 0px;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  width: 100%;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  font-family: 'Rubik One', sans-serif;
+  font-size: 22px;
+  font-weight:bold;
+  outline: 0.5px ridge white; /* Чёрная рамка */
+  width: 100%;
+  margin-left: 5%;
+  color: white;
+  border-radius: 5px;
+  margin-top: -1%;
+  padding:9%  ;
+  
+}
+

@@ -1,0 +1,59 @@
+.bio-title{
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 5%;
+}
+
+.bio {
+  width: 25rem;
+  padding: 0.625rem;
+
+  
+  border-radius: 6px;
+  box-shadow: 0px 2px 15px 2px var(--primary-shadow);
+}
+.bio-text{
+
+
+  text-align: center;
+}
+.bio h1 {
+  margin-bottom: var(--bottom-margin);
+}
+
+.bio p {
+  line-height: var(--line-height);
+  padding: 0.3rem 0;
+}
+@media screen and (max-width: 1070px) {
+  .bio {
+    margin-top: -3rem;
+    width: 20.5rem;
+  }
+  .bio-title{
+    text-align: left;
+    padding-bottom: 5%;
+}
+}
+@media screen and (max-width: 990px) {
+  .bio {
+    width: 15rem;
+    padding: 0.625rem;
+  
+  
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .bio {
+    width: 15rem;
+    padding: 0.625rem;
+    margin-top: -7rem;
+  
+  }
+}
+
+
+
+
+

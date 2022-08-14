@@ -1,0 +1,141 @@
+
+  .box-loading {
+    width: 49px;
+    height: 75px;
+    margin: auto;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-top: 20%;
+    bottom: 0;
+  }
+  
+  .box-loading:before {
+    content: "";
+    width: 49px;
+    height: 5px;
+    background: black;
+    opacity: 0.1;
+    position: absolute;
+    top: 58px;
+    left: 0;
+    border-radius: 50%;
+    animation: shadow 0.58s linear infinite;
+    -webkit-animation: shadow 0.58s linear infinite;
+  }
+  
+  .box-loading:after {
+    content: "";
+    width: 49px;
+    height: 49px;
+    background: #00c7e6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    animation: bouncing-box 0.58s linear infinite;
+    -webkit-animation: bouncing-box 0.58s linear infinite;
+  }
+  
+  .box-loading.-white:after {
+    background: #373a47;
+  }
+  
+  @keyframes bouncing-box {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+  
+    25% {
+      transform: translateY(9px) rotate(22.5deg);
+    }
+  
+    50% {
+      transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 39px;
+    }
+  
+    75% {
+      transform: translateY(9px) rotate(67.5deg);
+    }
+  
+    100% {
+      transform: translateY(0) rotate(90deg);
+    }
+  }
+  
+  @-webkit-keyframes bouncing-box {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+  
+    25% {
+      -webkit-transform: translateY(9px) rotate(22.5deg);
+    }
+  
+    50% {
+      -webkit-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 39px;
+    }
+  
+    75% {
+      -webkit-transform: translateY(9px) rotate(67.5deg);
+    }
+  
+    100% {
+      -webkit-transform: translateY(0) rotate(90deg);
+    }
+  }
+  
+  @keyframes shadow {
+    0%,
+    100% {
+      transform: scale(1, 1);
+    }
+  
+    50% {
+      transform: scale(1.2, 1);
+    }
+  }
+  
+  @-webkit-keyframes shadow {
+    0%,
+    100% {
+      -webkit-transform: scale(1, 1);
+    }
+  
+    50% {
+      -webkit-transform: scale(1.2, 1);
+    }
+  }
+  
+
+
+  /*Error*/
+
+  @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
+
+
+#wrapper {
+  width: 410px;
+  height: 350px;
+  margin: 0 auto;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -175px;
+  margin-left: -205px;
+}
+
+
+.content {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+
+  

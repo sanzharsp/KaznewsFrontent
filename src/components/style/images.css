@@ -1,0 +1,28 @@
+.hero img {
+  height: 37.5rem;
+  width: 37.5rem;
+}
+
+
+
+  @media screen and (max-width: 720px) {
+
+    
+      .hero img {
+        height: 37.5rem;
+        width: 26rem;
+      }
+    
+
+
+
+}
+@media screen and (max-width: 440px) {
+    .hero img {
+      height: 37.5rem;
+      width: 23rem;
+    }
+  
+
+
+}

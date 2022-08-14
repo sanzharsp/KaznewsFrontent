@@ -1,0 +1,7 @@
+.image_main_news_page{
+    width:100%;
+    height:100%;
+    position:absolute;
+    border-radius:20px;
+    filter: opacity(30%);
+}

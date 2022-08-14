@@ -1,0 +1,41 @@
+.searchModule {
+  width: 100%;
+  color: #252a32;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.searchModule input {
+  padding: 15px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: 1.3rem;
+  border: 1px solid transparent;
+  background-color: #ffffff;
+}
+.searchModule input:focus {
+  border: 1px solid rgb(61, 82, 126);
+}
+.searchModule ul {
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 1px;
+  border-radius: 3px;
+  max-height: 310px;
+  background-color: #ffffff;
+}
+.searchModule ul li {
+  padding: 15px;
+  background: white;
+  border-bottom: 1px solid #c7c0c0;
+  margin-top: 0.5px;
+}
+.searchModule li:hover {
+  color: rgb(241, 249, 249);
+  border-color: rgb(47, 110, 245);
+  background-color: rgb(47, 110, 245);
+}
