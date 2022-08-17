@@ -21,7 +21,7 @@ const CategoryInput=(props)=>{
       
         
       />
-
+      <h4 className='error'>{props.error}</h4>
 
       <div className="container_about" style={{textAlign: 'center'}}>
 

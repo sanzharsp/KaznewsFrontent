@@ -137,8 +137,8 @@ formData.append('content_text', contentEdit3 );
     
       </div>
 
-      <CategoryInput formData={formData} contentEdit1={contentEdit1} contentEdit2={contentEdit2} />
-  <h4 className='error'>{errorCategory}</h4>
+      <CategoryInput formData={formData} error={errorCategory} contentEdit1={contentEdit1} contentEdit2={contentEdit2} />
+ 
   
 
       <div className="container_about" style={{textAlign: 'center'}}>
