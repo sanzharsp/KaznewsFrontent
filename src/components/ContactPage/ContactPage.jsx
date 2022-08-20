@@ -25,8 +25,21 @@ const ContactPage = () => {
         <a href={url.social.github} className="fa fa-github-square github" id="SocialNetwork"></a>
         <a  href={url.social.instagram} className="fa fa-instagram" id="SocialNetwork"></a>
       </div>
-        <Footer/>
+      <div className="container_about text_before_after">
 
+      <h1>Наш gmail</h1>
+    
+    
+      </div>
+      <div className="container_about">
+      <h3 style={{textAlign: 'center'}} >{url.gmail}</h3>
+      
+      
+      </div>
+    <div className="footer_contact">
+      
+        <Footer/>
+        </div>
         </div>
     )
 }

@@ -89,7 +89,7 @@ formData.append('content_text', contentEdit3 );
         ).then(response => {
           
 
-
+          
           navigate("/", { replace: true });
      
           
