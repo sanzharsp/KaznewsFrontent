@@ -31,7 +31,7 @@ const ContactPage = () => {
     
     
       </div>
-      <div className="container_about">
+      <div className="container_about padding_contact">
       <h3 style={{textAlign: 'center'}} >{url.gmail}</h3>
       
       

@@ -5,6 +5,9 @@
 	width: 100%;
 
 }
+.padding_contact{
+  padding-bottom:20%;
+}
 .banka {
     padding: 5%;
     display:flex;
@@ -43,11 +46,18 @@
       filter: hue-rotate(360deg);
     }
   }
+  @media screen and (min-width: 780px) {
+  
+    .padding_contact{
+      padding-bottom: 0%;
+    }
 
+  }
   @media screen and (max-width: 748px) {
     #SocialNetwork {
         font-size: 2em;
     }
+  
 
   }
   @media screen and (max-width: 560px) {
