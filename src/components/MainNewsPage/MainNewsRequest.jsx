@@ -7,8 +7,6 @@ import url from '../backend-server-url'
 import Footer from '../footer/footer'
 import './MainNewsPage.css'
 
-/*основной компонент для загрузки данных и оброботке ошибок */
-
 let baseurl =url.baseUrl
 let url_get_data=url.main_news
 export default class MainNewsRequest extends React.Component {
@@ -39,15 +37,7 @@ export default class MainNewsRequest extends React.Component {
     return (
       <div>
       
-      {this.state.post.map(posts => 
-
-
-     
-      
-
-
-      <img className="image_main_news_page" src={baseurl+posts.image1}/>
-      )}
+ 
       <div  className="Container">
       <div className="container_about">
       <h1 >Наши главные новости</h1>

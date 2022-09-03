@@ -38,14 +38,14 @@ useEffect(()=>{
       { post.map(posts =>
         <div key={posts.id}>
         <div className="content-title" dangerouslySetInnerHTML={{ __html: posts.title }} />
-        <div className="images-content">
+        
         <Slideshow baseurl={baseurl} image1={`${baseurl}${posts.image1}`} image2={`${baseurl}${posts.image2}`} image3={`${baseurl}${posts.image3}`} />
-        </div>
+      
 
            <div className="post">
          
               <div className="post-content">
-          
+       
         
                 <div dangerouslySetInnerHTML={{ __html: posts.content_text }}/>
                 <span className="post-date"><i className="fa fa-clock-o"></i>{posts.published_date}</span>

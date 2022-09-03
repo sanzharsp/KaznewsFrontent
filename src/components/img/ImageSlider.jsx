@@ -3,6 +3,7 @@
 
 
 import SimpleImageSlider from "react-simple-image-slider";
+import './ImageSlider.css'
 /*Слайдер для изображений поста */
 
 const Slideshow = (props) => {
@@ -20,20 +21,24 @@ const arrayImage=[];
 
     return (
     
-      <div>
+    
 
 
       <SimpleImageSlider
         width="80%"
-        height={504}
+        height={500}
+  
         images={arrayImage}
   
         showBullets={true}
         showNavs={true}
+        autoPlay={true}
+        useGPURender={true}
+        loop={true}
       />
    
  
-    </div>
+
      
     )
 }

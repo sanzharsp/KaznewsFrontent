@@ -2,11 +2,11 @@
 import './animation.css';
 
 
-const Animation = () => {
+const Animation = (props) => {
 
 
     return(
-        <div className="circles">
+        <div style={{color: props.color,height: props.height,width: props.width}} className="circles">
   <div></div>
   <div></div>
   <div></div>

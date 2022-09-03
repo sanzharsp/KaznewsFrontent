@@ -1,6 +1,6 @@
 .list-content{
 
-
+overflow: hidden;
   display: inline-block;
   max-width: 320px;
 }

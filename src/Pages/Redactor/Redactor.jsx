@@ -4,7 +4,7 @@ import "./Redactor.css"
 
 import url from '../../components/backend-server-url'
 
-import setAuthToken from '../Auth/auth-header'
+import axiosInterceptor from '../Auth/auth-header'
 
 import { useNavigate } from "react-router-dom";
 
@@ -79,7 +79,7 @@ formData.append('content_text', contentEdit3 );
 
 
 
-  setAuthToken();
+
  
 
 
