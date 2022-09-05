@@ -90,7 +90,7 @@ formData.append('content_text', contentEdit3 );
           
 
           
-          navigate("/", { replace: true });
+          //navigate("/", { replace: true });
      
           
           });
@@ -119,7 +119,8 @@ formData.append('content_text', contentEdit3 );
 
     
 
-<div><section className="list-content" >
+<div>
+<section className="list-content" >
   
 
 

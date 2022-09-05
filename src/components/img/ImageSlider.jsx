@@ -1,12 +1,9 @@
-
-
-
-
-import SimpleImageSlider from "react-simple-image-slider";
-import './ImageSlider.css'
+import Carousel from 'react-material-ui-carousel'
+import './Slider.css'
 /*Слайдер для изображений поста */
 
 const Slideshow = (props) => {
+
 const arrayImage=[];
   if(props.image1 !== `${props.baseurl}${null}`) {
     arrayImage.push({"url":props.image1});
@@ -20,23 +17,27 @@ const arrayImage=[];
 
 
     return (
-    
-    
-
-
-      <SimpleImageSlider
-        width="80%"
-        height={500}
-  
-        images={arrayImage}
-  
-        showBullets={true}
-        showNavs={true}
-        autoPlay={true}
-        useGPURender={true}
-        loop={true}
-      />
+    <div className="container_slider">
+      <Carousel 
+      navButtonsAlwaysVisible={true}
+      className="carusels"
+      cycleNavigation={true}
+      swipe={true}
+      indicators={false}
    
+      >
+
+    
+      {arrayImage.map(image => 
+      <div>
+    <img className="slider" src={image.url}/>
+    </div>
+      )
+      }
+      </Carousel >
+      </div>
+
+
  
 
      
