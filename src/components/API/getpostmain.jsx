@@ -62,7 +62,7 @@ useEffect(() =>{
 
 
 },[])
-console.log(DataLatesNews)
+
 
   
     const scrollHandler=(e)=>{
