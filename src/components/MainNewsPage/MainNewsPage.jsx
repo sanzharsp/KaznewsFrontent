@@ -11,7 +11,7 @@ import {
 
 
 const MainNews = (props) => {
-    let imageUrl=`${props.baseurl}${props.image}`;
+  
 
 
  
@@ -21,7 +21,7 @@ const MainNews = (props) => {
 
             <div className="post-slide">
               <div className="post-img">
-                <img src={imageUrl} alt=""/>
+                <img src={props.image} alt=""/>
                 <a  className="over-layer"><i className="fa fa-link"></i></a>
               </div>
               <div className="post-content">
