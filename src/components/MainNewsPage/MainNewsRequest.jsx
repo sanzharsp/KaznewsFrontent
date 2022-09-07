@@ -1,4 +1,4 @@
-import MainNews from './MainNewsPage'
+import Posts from '../API/posts_request'
 import React ,{useState,useEffect} from 'react';
 import axios from 'axios';
 import '../API/getpostmainload.css'
@@ -39,7 +39,7 @@ axios.get(`${url.baseUrl}${url.main_news}${currentPage}`)
 }
 ).catch((error)=>{
 
-if (error.response.status!=404){
+if (error.response.status!==404){
 seterror(true);
 }
 }).finally(()=>setfetching(false))
@@ -63,7 +63,7 @@ useEffect(() =>{
 
   const scrollHandler=(e)=>{
    
-      if (e.target.documentElement.scrollHeight-(e.target.documentElement.scrollTop+window.innerHeight)<100 && localStorage.getItem('next')!='null'){
+      if (e.target.documentElement.scrollHeight-(e.target.documentElement.scrollTop+window.innerHeight)<100 && localStorage.getItem('next')!=='null'){
 
       
           setfetching(true);
@@ -101,7 +101,7 @@ useEffect(() =>{
      
         : DataLatesNews.map(posts => 
 
-        <MainNews key={posts.id} category={posts.category} id={posts.id}  image={posts.image1} title={posts.title} content_text={posts.context} image1={posts.image1} author={{"Author_user":posts.user.username,"author_first_name":posts.user.first_name,"author_last_name":posts.user.last_name}} published_date={posts.date_add}/>
+        <Posts key={posts.id} category={posts.category} id={posts.id}  image={posts.image1} title={posts.title} content_text={posts.context} image1={posts.image1} author={{"Author_user":posts.user.username,"author_first_name":posts.user.first_name,"author_last_name":posts.user.last_name}} published_date={posts.date_add}/>
 
      
     

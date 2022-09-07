@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import url from '../backend-server-url'
 import './search_style.css'
-import PostListItem from '../API/getpost'
+import Posts from '../API/posts_request'
 import TextAnim from '../Animation/PrintsTextAnim'
 
 
@@ -90,7 +90,7 @@ class LiveSearchFilter extends Component {
             return (
            
                 
-              <PostListItem key={res.id} category={res.category} id={res.id} baseurl={url.baseUrl} image={url.baseUrl+res.image1}  title={ res.title }  content_text={res.context} image1={res.image1} author={{"Author_user":res.user.username,"author_first_name":res.user.first_name,"author_last_name":res.user.last_name}} published_date={res.date_add}/>
+              <Posts key={res.id} category={res.category} id={res.id} baseurl={url.baseUrl} image={url.baseUrl+res.image1}  title={ res.title }  content_text={res.context} image1={res.image1} author={{"Author_user":res.user.username,"author_first_name":res.user.first_name,"author_last_name":res.user.last_name}} published_date={res.date_add}/>
           
             
              

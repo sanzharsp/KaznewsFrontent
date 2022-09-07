@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField';
 import React, {useState  } from "react";
 import PreViewImage from '../../images/PreView.png'
-import PostListItem from '../../components/API/getpost'
+import Posts from '../../components/API/posts_request'
 
 
 const CategoryInput=(props)=>{
@@ -30,7 +30,7 @@ const CategoryInput=(props)=>{
     
       </div>
      
-    <PostListItem 
+    <Posts 
     category={CategoryName} 
     image={PreViewImage}  
     title={props.contentEdit1}  
