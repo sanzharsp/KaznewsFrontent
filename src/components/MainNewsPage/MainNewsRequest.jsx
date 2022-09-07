@@ -7,12 +7,7 @@ import url from '../backend-server-url'
 import Footer from '../footer/footer'
 import './MainNewsPage.css'
 
-import {
 
-  Link,
- 
-  
-} from "react-router-dom";
 
 
 
@@ -30,7 +25,7 @@ const[error,seterror]=useState(false);
 
 useEffect(() =>{
 if (fetching){
-axios.get(`${url.baseUrl}${url.lates_news}${currentPage}`)
+axios.get(`${url.baseUrl}${url.main_news}${currentPage}`)
 .then(response=>{
   localStorage.setItem('next',response.data.next);
   setDataLatesNews([...DataLatesNews, ...response.data.results]);
