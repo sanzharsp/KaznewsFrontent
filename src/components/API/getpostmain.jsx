@@ -62,6 +62,7 @@ useEffect(() =>{
 
 
 },[])
+console.log(DataLatesNews)
 
   
     const scrollHandler=(e)=>{
@@ -109,8 +110,8 @@ useEffect(() =>{
                   <a href="#"><div dangerouslySetInnerHTML={{ __html: postlist.title }}/></a>
                 </h3>
                 <h4>#{postlist.category}|{postlist.user.username}</h4>
-                <p className="post-description"><div dangerouslySetInnerHTML={{ __html: postlist.content_text }}/></p>
-                <span className="post-date"><i className="fa fa-clock-o"></i>{postlist.published_date}</span>
+                <p className="post-description"><div dangerouslySetInnerHTML={{ __html: postlist.context }}/></p>
+                <span className="post-date"><i className="fa fa-clock-o"></i>{postlist.date_add}</span>
                 <Link  to={`/post/${postlist.id}`} className="read-more">Читать</Link>
               </div>
               
