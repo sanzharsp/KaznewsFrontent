@@ -20,7 +20,6 @@ import MainNewsBoolean from './Checkbox'
 
 
 
-
 export default function Redactor() {
   let formData = new FormData();// global FormData
   let navigate = useNavigate();// Redirect
@@ -63,7 +62,7 @@ const [errorUsername, setErrorUsername]=useState(''),
       [errorContent_text, setErrorContent_text] = useState(''),
       [errorMain_news, setErrorMain_news] = useState(''),
       [errorCategory, setErrorCategory] = useState('');
-    
+
       
  const NewPostPub = async (e) => {
     e.preventDefault();
@@ -95,8 +94,8 @@ formData.append('content_text', contentEdit3 );
           
           });
   } catch (error) {
-    
  
+ console.log(error)
           if (error.response) {
             setMsg(error.response.data.detail);
             setErrorUsername(error.response.data.user);

@@ -22,6 +22,12 @@ const[error,seterror]=useState(false);
 
 
 useEffect(() =>{
+  localStorage.removeItem('next_main');
+  localStorage.removeItem('next');
+
+},[])
+
+useEffect(() =>{
 if (fetching){
 axios.get(`${url.baseUrl}${url.lates_news}${currentPage}`)
 .then(response=>{

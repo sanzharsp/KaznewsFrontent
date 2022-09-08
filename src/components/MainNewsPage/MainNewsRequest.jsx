@@ -20,14 +20,18 @@ const[fetching,setfetching]=useState(true);
 const[loading,setloading]=useState(true);
 const[error,seterror]=useState(false);
 
+useEffect(() =>{
+  localStorage.removeItem('next');
+  localStorage.removeItem('next_main');
 
+},[])
 
 
 useEffect(() =>{
 if (fetching){
 axios.get(`${url.baseUrl}${url.main_news}${currentPage}`)
 .then(response=>{
-  localStorage.setItem('next',response.data.next);
+  localStorage.setItem('next_main',response.data.next);
   setDataLatesNews([...DataLatesNews, ...response.data.results]);
   setloading(false);
   seterror(false);
@@ -63,7 +67,7 @@ useEffect(() =>{
 
   const scrollHandler=(e)=>{
    
-      if (e.target.documentElement.scrollHeight-(e.target.documentElement.scrollTop+window.innerHeight)<100 && localStorage.getItem('next')!=='null'){
+      if (e.target.documentElement.scrollHeight-(e.target.documentElement.scrollTop+window.innerHeight)<100 && localStorage.getItem('next_main')!=='null'){
 
       
           setfetching(true);
