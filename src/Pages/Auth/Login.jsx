@@ -26,6 +26,7 @@ const Login = () => {
                 
                 localStorage.setItem("access",response.data.access);
                 localStorage.setItem("refresh",response.data.refresh);
+                localStorage.setItem("user",response.data.user.username);
                 navigate("/", { replace: true });
            
                 

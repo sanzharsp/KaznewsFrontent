@@ -4,11 +4,9 @@ import "./Redactor.css"
 
 import url from '../../components/backend-server-url'
 
-import axiosInterceptor from '../Auth/auth-header'
+import axiosApiInstance from '../Auth/auth-header'
 
 import { useNavigate } from "react-router-dom";
-
-import axios from 'axios';
 
 import TextEditor from './TextEditor'
 
@@ -83,9 +81,9 @@ formData.append('content_text', contentEdit3 );
 
 
   try {
-      await  axios.post(url.baseUrl+url.Auth.post,
+      await  axiosApiInstance.post(url.baseUrl+url.Auth.post,
         formData,configuration
-        ).then(response => {
+        ).then(() => {
           
 
           
@@ -94,8 +92,8 @@ formData.append('content_text', contentEdit3 );
           
           });
   } catch (error) {
- 
- console.log(error)
+ console.log("mal")
+
           if (error.response) {
             setMsg(error.response.data.detail);
             setErrorUsername(error.response.data.user);

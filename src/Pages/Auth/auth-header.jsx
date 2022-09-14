@@ -1,55 +1,61 @@
 import axios from 'axios';
+import url from '../../components/backend-server-url';
 
 
 
 
 
+
+const axiosApiInstance = axios.create();
+
+// Request interceptor for API calls
+axiosApiInstance.interceptors.request.use(
+   config => {
+    
+    config.headers = { 
+      'Authorization': `Bearer ${localStorage.getItem('access')}`
+     
+    }
+ 
+    return config;
+  },
+  error => {
+   
+   
+    return Promise.reject(error)
+      });
+
+axiosApiInstance.interceptors.response.use(
   
-    const axiosInterceptor =axios.interceptors.response.use(
-        
-        config => {
-          config.headers['Authorization'] = `Bearer ${localStorage.getItem('access')}`;
-         
-              return config;
-              
-              
-          }, 
-          error => {
-  if (error.response.status === 401) {
+   config => {
+
+    config.headers = { 
+      'Authorization': `Bearer ${localStorage.getItem('access')}`
+
+    }
+    return config;
+  },
+  error => {
   
-axios.post('http://127.0.0.1:8000/api/v1/login/refresh/',
-{refresh:localStorage.getItem('refresh'),})
-.then(response => {
-  console.log("access before",localStorage.getItem('access'))
-
-localStorage.setItem("access",response.data.access);
-localStorage.setItem("refresh",response.data.refresh);
+    const originalRequest = error.config;
+    
+if (error.response.status === 401){
 
 
-error.headers['Authorization'] = `Bearer ${localStorage.getItem('access')}`;
+axios.post( `${url.baseUrl}${url.Auth.refresh}`,
+{refresh:localStorage.getItem('refresh')}).then(response =>{
 
-      
-      
-  
+  localStorage.setItem('access',response.data.access)
+})
+
+return axiosApiInstance(originalRequest);
 }
-
-)
-return error;
-  }else {
-    return Promise.reject(error);
-}
-  
-}
+return Promise.reject(error)
+  }
+          
          
         );
    
 
 
-
-
-
-
-export default axiosInterceptor
-// Set config defaults when creating the instance
-
-
+export default axiosApiInstance;
