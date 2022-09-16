@@ -87,12 +87,12 @@ formData.append('content_text', contentEdit3 );
           
 
           
-          //navigate("/", { replace: true });
+          navigate("/", { replace: true });
      
           
           });
   } catch (error) {
- console.log("mal")
+
 
           if (error.response) {
             setMsg(error.response.data.detail);
