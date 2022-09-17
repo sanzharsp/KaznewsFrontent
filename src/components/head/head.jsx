@@ -4,6 +4,11 @@ import { stack   as Menu } from 'react-burger-menu';
 import 'reactjs-popup/dist/index.css'
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
+import AvatarString from '../../utils/StringAvatar/StringAvatar'
+import Avatar from '@mui/material/Avatar';
+import { useState,useEffect } from 'react';
+import axiosApiInstance from '../API/auth-header'
+
 import {
 
     Link,
@@ -17,7 +22,15 @@ import {
 
 const Head=(props)=>{
 
-    
+    const [IsLogin,setIsLogin]=useState(false);
+
+    useEffect(()=>{
+      if (localStorage.getItem("refresh")!== null)
+      {
+        //axiosApiInstance.post
+      }
+
+    },[])
 
     return(
         <div>
@@ -28,16 +41,23 @@ const Head=(props)=>{
      <a className="transparent-text" href="/"><h3>{props.title}</h3> </a> 
      
  
-          <Animation/>
    
+     <Animation/>
         <IconButton color="primary" >
-        <Link to={'search'}>
-        <SearchIcon sx={{ fontSize: 35 }}/>
+        <Link to={'search'}> 
+
+        <SearchIcon sx={{ fontSize: 40 ,color: '#2E2F45' }}/>
+
         </Link>
+
         </IconButton>
             
+        <Link  to={"profile"} className="menu-item tegA">
 
-           
+        <Avatar {...AvatarString('Санжар Сапар')} />
+        
+        </Link>
+        
           </div>
 
     <Menu>

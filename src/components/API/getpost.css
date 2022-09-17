@@ -54,7 +54,7 @@ overflow: hidden;
 }
 .post-slide .post-content{
     background:#fff;
-    padding: 2px 20px 40px;
+    padding: 10px 20px 50px;
     border-radius: 15px;
 }
 .post-slide .post-title a{
@@ -134,7 +134,7 @@ overflow: hidden;
 }
 @media only screen and (max-width:1280px) {
     .post-slide .post-content{
-        padding: 0px 15px 25px 15px;
+        padding: 10px 15px 25px 15px;
     }
 }
 

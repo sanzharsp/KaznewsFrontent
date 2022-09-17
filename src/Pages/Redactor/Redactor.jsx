@@ -4,7 +4,7 @@ import "./Redactor.css"
 
 import url from '../../components/backend-server-url'
 
-import axiosApiInstance from '../Auth/auth-header'
+import axiosApiInstance from '../../components/API/auth-header'
 
 import { useNavigate } from "react-router-dom";
 

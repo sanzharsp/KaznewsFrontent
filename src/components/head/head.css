@@ -22,7 +22,7 @@
 .transparent-text {
   text-decoration: none;
     font-family: 'Rubik One', sans-serif;
-    font-size: 30px;
+    font-size: 25px;
     text-transform: uppercase;
     background: #2E2F45;
     display: table;
@@ -65,12 +65,13 @@ body {
 .navi {
   
   position: sticky;
-
+  width: 100%;
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: baseline;
   padding: 1.5rem 3.5rem;
+  padding-right: 0%;
   background-color: var(--bg-color);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
