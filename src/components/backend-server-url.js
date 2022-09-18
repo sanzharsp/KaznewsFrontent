@@ -25,6 +25,9 @@
     Update:{
         refresh:'/api/v1/login/refresh/'
     },
+    Profile:{
+        info:'/api/v1/user/info'
+    },
     gmail:'sanzharsapar1@gmail.com'
     
     }

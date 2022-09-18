@@ -8,6 +8,7 @@ import AvatarString from '../../utils/StringAvatar/StringAvatar'
 import Avatar from '@mui/material/Avatar';
 import { useState,useEffect } from 'react';
 import axiosApiInstance from '../API/auth-header'
+import url from '../backend-server-url'
 
 import {
 
@@ -23,14 +24,27 @@ import {
 const Head=(props)=>{
 
     const [IsLogin,setIsLogin]=useState(false);
+    const [FirstName,setFirstName]=useState('');
+    const [LastName,setLastName]=useState('');
 
     useEffect(()=>{
-      if (localStorage.getItem("refresh")!== null)
+      if (localStorage.getItem("refresh")!== null & localStorage.getItem("refresh")!== undefined )
       {
-        //axiosApiInstance.post
+        axiosApiInstance.get(`${url.baseUrl}${url.Profile.info}`)
+        .then(res => {
+          const post = res.data;
+      
+          setFirstName(post.first_name);
+          setLastName(post.last_name);
+          setIsLogin(true);
+        
+        }).catch(err => {
+          setIsLogin(false);
+
+        })
       }
 
-    },[])
+    },[props])
 
     return(
         <div>
@@ -51,12 +65,21 @@ const Head=(props)=>{
         </Link>
 
         </IconButton>
-            
+        {
+          IsLogin
+        ?
         <Link  to={"profile"} className="menu-item tegA">
 
-        <Avatar {...AvatarString('Санжар Сапар')} />
+        <Avatar {...AvatarString(`${FirstName} ${LastName}`)} />
         
         </Link>
+        :
+        <Link  to={"login"} className="menu-item tegA">
+
+        <Avatar  />
+        
+        </Link>
+        }
         
           </div>
 
