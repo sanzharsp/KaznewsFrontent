@@ -26,7 +26,8 @@
         refresh:'/api/v1/login/refresh/'
     },
     Profile:{
-        info:'/api/v1/user/info'
+        info:'/api/v1/user/info',
+        profile:'/api/v1/news/get/profile'
     },
     gmail:'sanzharsapar1@gmail.com'
     

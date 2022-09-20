@@ -1,6 +1,6 @@
 import Head from "./components/head/head"
 import './components/style/images.css'
-import React ,{StrictMode} from 'react';
+import React  from 'react';
 import IndexPage from './components/Index/Index'
 import NotfoundPage from './components/NotfoundPage/NotfoundPage'
 import LinkToPost from './components/LinkToPost/LinkToPost'
@@ -11,7 +11,8 @@ import Register from './Pages/Auth/Register'
 import Login from './Pages/Auth/Login'
 import Redactor from './Pages/Redactor/Redactor'
 import LiveSearchFilter from './components/Search_Post/search'
-
+import InfoProfile from './components/Profile/info-profile'
+import Profile from './components/Profile/profile'
 
 import {
   BrowserRouter as Router,
@@ -38,6 +39,7 @@ function App() {
       { path: "login", element: <Login />},
       { path: "redactor", element: <Redactor />},
       { path: "search", element: <LiveSearchFilter/>},
+      { path: "profile", element: <Profile/>},
       
       
      
@@ -50,7 +52,7 @@ function App() {
     
 <header>
 
-  <StrictMode>    
+      
 <Head 
  title={"KAZNEWS"}
  home={"ГЛАВНАЯ"}  
@@ -60,9 +62,10 @@ function App() {
  register={'РЕГИСТРАЦИЯ'} 
  login={'АВТОРИЗАЦИЯ'}
  redactor={'РЕДАКЦИЯ'}
+ infoprofile={<InfoProfile/>}
  />
 
-</StrictMode>  
+
 </header>
 <Routings /> 
  </Router>

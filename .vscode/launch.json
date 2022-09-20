@@ -1,0 +1,25 @@
+{
+    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "vms_dbg",
+            "request": "launch",
+            "name": "Settings Debug",
+            "program": "",
+            "arguments": "",
+            "stopOnEntry": true,
+            "typeRun": "DEBUG"
+        },
+        {
+            "type": "vms_dbg",
+            "request": "launch",
+            "name": "Settings Run",
+            "program": "",
+            "arguments": "",
+            "typeRun": "RUN"
+        }
+    ]
+}

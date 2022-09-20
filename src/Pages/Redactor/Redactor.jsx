@@ -16,9 +16,14 @@ import CategoryInput from './Category'
 
 import MainNewsBoolean from './Checkbox'
 
+import CircularProgress from '@mui/material/CircularProgress';
+
+import { Backdrop } from '@mui/material';
 
 
 export default function Redactor() {
+  const [Loading, setLoading] = useState(false); // загрузка в серевер данные
+
   let formData = new FormData();// global FormData
   let navigate = useNavigate();// Redirect
 
@@ -63,6 +68,7 @@ const [errorUsername, setErrorUsername]=useState(''),
 
       
  const NewPostPub = async (e) => {
+  setLoading(!Loading);
     e.preventDefault();
    
 
@@ -84,7 +90,7 @@ formData.append('content_text', contentEdit3 );
       await  axiosApiInstance.post(url.baseUrl+url.Auth.post,
         formData,configuration
         ).then(() => {
-          
+          setLoading(false);
 
           
           navigate("/", { replace: true });
@@ -93,7 +99,7 @@ formData.append('content_text', contentEdit3 );
           });
   } catch (error) {
 
-
+          setLoading(false);
           if (error.response) {
             setMsg(error.response.data.detail);
             setErrorUsername(error.response.data.user);
@@ -115,6 +121,17 @@ formData.append('content_text', contentEdit3 );
   return (
 
     
+      Loading
+      ?
+      <Backdrop
+      sx={{ color: '#fff'}}
+      open={true}
+      onClick={Loading}
+    
+    >
+      <CircularProgress color="inherit" />
+    </Backdrop>
+    :
 
 <div>
 <section className="list-content" >
@@ -222,7 +239,7 @@ formData.append('content_text', contentEdit3 );
 
     <div className="outer" >
     <span className="inner" >
-    <button className="login__submit" >Отправить пост</button>
+    <button className="login__submit"  >Отправить пост</button>
     </span>
     </div>
  
@@ -231,6 +248,7 @@ formData.append('content_text', contentEdit3 );
 
 
     </div>
+    
     
   );
   
