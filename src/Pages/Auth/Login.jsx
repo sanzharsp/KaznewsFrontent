@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-
+import CircularProgress from '@mui/material/CircularProgress';
+import { Backdrop } from '@mui/material';
 import axios from 'axios';
 
 
 import './StylesAuth.css'
 import url from '../../components/backend-server-url'
- 
+
+
 const Login = () => {
+    const [Loading, setLoading] = useState(false); // загрузка в серевер данные
     let navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -16,6 +19,7 @@ const Login = () => {
     const [errorPassword, setErrorPassword,]=useState('');
 
     const Auth_Login = async (e) => {
+        setLoading(!Loading);
         e.preventDefault();
         try {
             await  axios.post(url.baseUrl+url.Auth.login, {
@@ -23,7 +27,7 @@ const Login = () => {
                 password: password
             }).then(response => {
                 
-                
+                setLoading(false);
                 localStorage.setItem("access",response.data.access);
                 localStorage.setItem("refresh",response.data.refresh);
                 localStorage.setItem("user",response.data.user.username);
@@ -32,13 +36,14 @@ const Login = () => {
                 
                 });
         } catch (error) {
+            setLoading(false);
             if (error.response) {
                 setMsg(error.response.data.detail);
                 setErrorUsername(error.response.data.username);
                 setErrorPassword(error.response.data.password);
                 }
           
-                console.log(error.response)
+               
             }
      
           
@@ -46,6 +51,17 @@ const Login = () => {
     
  
     return (
+        Loading
+        ?
+        <Backdrop
+        sx={{ color: '#fff'}}
+        open={true}
+        onClick={Loading}
+      
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+      :
         <div className="login-container">
 
                             <form onSubmit={Auth_Login} className="form-login">
@@ -72,6 +88,7 @@ const Login = () => {
                             <h4 className='error'>{errorPassword}</h4>
                   
                                 <button className="login__submit" >авторизоваться</button>
+                                
                             </form>
                             <a href="#" className="login__forgot">Забыли пароль?</a>
                         </div>

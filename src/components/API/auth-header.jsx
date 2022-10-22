@@ -5,24 +5,9 @@ import url from '../../components/backend-server-url';
 
 const axiosApiInstance = axios.create();
 
-// Request interceptor for API calls
-axiosApiInstance.interceptors.request.use(
-   config => {
-    
-    config.headers = { 
-      'Authorization': `Bearer ${localStorage.getItem('access')}`
-     
-    }
- 
-    return config;
-  },
-  error => {
-   
-   
-    return Promise.reject(error)
-      });
 
-axiosApiInstance.interceptors.response.use(
+
+axiosApiInstance.interceptors.request.use(
   
    config => {
 

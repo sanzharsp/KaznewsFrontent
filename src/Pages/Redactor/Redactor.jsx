@@ -72,7 +72,8 @@ const [errorUsername, setErrorUsername]=useState(''),
     e.preventDefault();
    
 
-const configuration = {headers: {'content-type': 'multipart/form-data'}}    
+const configuration = {
+headers: {'content-type': 'multipart/form-data'}}    
 formData.append('user', username);
 formData.append('title', contentEdit1);
 formData.append('context',contentEdit2);

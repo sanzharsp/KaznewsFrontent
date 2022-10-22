@@ -7,7 +7,11 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import Checkbox from '@mui/material/Checkbox';
 
+import CircularProgress from '@mui/material/CircularProgress';
+import { Backdrop } from '@mui/material';
+
 const Register = () => {
+    const [Loading, setLoading] = useState(false); // загрузка в серевер данные
     const [ inputType, setInputType ] = useState('password');
      // boolean 
 
@@ -48,6 +52,7 @@ const Register = () => {
         const [errorCaptcha_value, setErrorCaptcha_value] = useState('');
 
     const Auth_Register = async (e) => {
+        setLoading(!Loading);
         e.preventDefault();
         if (password===resetpassword){
             seterrorPasswordRepeat('');
@@ -63,7 +68,7 @@ const Register = () => {
                 captcha_value:captcha_value,
                 hashkey:localStorage.getItem("captcha_key")
             }).then(response => {
-                console.log(response);
+                setLoading(false);
                 localStorage.setItem("user",response.data.user.username)
                 localStorage.setItem("first_name",response.data.user.first_name)
                 localStorage.setItem("last_name",response.data.user.last_name)
@@ -75,6 +80,7 @@ const Register = () => {
                 
                 });
         } catch (error) {
+            setLoading(false);
             if (error.response) {
                 setMsg(error.response.data.detail);
                 setErrorUsername(error.response.data.username);
@@ -86,10 +92,11 @@ const Register = () => {
                 setErrorCaptcha_value(error.response.data.captcha_value);
                 }
           
-                console.log(error.response)
+              
             }
         }
         if(password!==resetpassword) {
+            setLoading(false);
             seterrorPasswordRepeat("Пароли не совподают")
         }
      
@@ -97,6 +104,17 @@ const Register = () => {
         }
 
     return(
+        Loading
+        ?
+        <Backdrop
+        sx={{ color: '#fff'}}
+        open={true}
+        onClick={Loading}
+      
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+      :
         
         <div>
 

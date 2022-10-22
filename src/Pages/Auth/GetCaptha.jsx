@@ -2,6 +2,7 @@ import './StylesAuth.css'
 import React from 'react';
 import axios from 'axios';
 import url from '../../components/backend-server-url'
+import Skeleton from '@mui/material/Skeleton';
 
 /*основной компонент для загрузки данных и оброботке ошибок */
 
@@ -41,6 +42,7 @@ export default class Captcha extends React.Component {
       })
   }
   handleClick = (event) => {
+    this.setState({ loading:true});
     event.preventDefault();
     this.componentDidMount()
   }
@@ -51,8 +53,13 @@ export default class Captcha extends React.Component {
  
     return (
       <div className="container_captcha">
- 
+      {
+        this.state.loading
+        ?
+      <Skeleton className="image_captcha" variant="rectangular" width={200} height={60} />
+      :
       <img className="image_captcha" src={baseurl +this.state.url}/>
+      }
       <div className="captcha">
       
       <button className="login__submit" onClick={this.handleClick} >

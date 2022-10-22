@@ -22,6 +22,7 @@ const InfoProfile=()=>{
           setFirstName(post.first_name);
           setLastName(post.last_name);
           setIsLogin(true);
+
         
         }).catch(err => {
           setIsLogin(false);

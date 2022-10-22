@@ -5,6 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Container from '@mui/material/Container';
 import { Backdrop } from '@mui/material';
 import './Profile.css'
+import Logout from '../../Pages/Auth/LogOut'
 
 const Profile=()=>{
 
@@ -50,6 +51,7 @@ const Profile=()=>{
 	
 
             <div>{profile.username} {profile.first_name} {profile.last_name} {profile.surname} {profile.created_at} {profile.email} </div>
+            <Logout/>
             </Container>
 
         )

@@ -10,7 +10,9 @@ import Footer from '../footer/footer';
 
 
 function IndexPage() {
+ 
   return (
+
     <div >
 
 
@@ -27,6 +29,7 @@ about={"Коротко о нас"}/>}
 
 <Footer/>
 </div>
+
 
 
 );
