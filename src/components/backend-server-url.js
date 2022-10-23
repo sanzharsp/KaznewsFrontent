@@ -28,7 +28,8 @@
     Profile:{
         info:'/api/v1/user/info',
         profile:'/api/v1/news/get/profile',
-        logout:'/api/v1/logout/'
+        logout:'/api/v1/logout/',
+        userpost:'/api/v1/news/get/user_post',
     },
     gmail:'sanzharsapar1@gmail.com'
     

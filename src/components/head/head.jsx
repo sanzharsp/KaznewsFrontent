@@ -5,7 +5,7 @@ import 'reactjs-popup/dist/index.css'
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import {Link} from "react-router-dom";
-
+import InfoProfile from '../Profile/info-profile'
 
 
 /*Шапка и роутинг сайта */
@@ -34,7 +34,7 @@ const Head=(props)=>{
 
         </IconButton>
        
-        {props.infoprofile}
+        <InfoProfile/>
 
           </div>
 
