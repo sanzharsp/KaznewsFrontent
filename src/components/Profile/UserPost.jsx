@@ -36,10 +36,11 @@ const UserPost=()=>{
          
             setLoading(false);
             setData(res.data);
-       
-            if (Data.length === 0){
-                setLenght(!lenght)
-            }
+            console.log([res.data[0]])
+            if (res.data[0] === undefined) setLenght(false);
+            else setLenght(true);
+
+            
       
       
     
