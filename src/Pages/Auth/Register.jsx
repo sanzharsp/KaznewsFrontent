@@ -11,8 +11,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { Backdrop } from '@mui/material';
 
 const Register = () => {
-    const [Loading, setLoading] = useState(false); // загрузка в серевер данные
-    const [ inputType, setInputType ] = useState('password');
+    const [Loading,setLoading] = useState(false); // загрузка в серевер данные
+    const [inputType,setInputType ] = useState('password');
      // boolean 
 
  const [checked, setChecked] = useState(false)

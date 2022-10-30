@@ -4,13 +4,16 @@ import { useState,useEffect } from 'react';
 import axiosApiInstance from '../../components/API/auth-header'
 import url from '../../components/backend-server-url'
 import {Link} from "react-router-dom";
+import Counter from '../Mobx/ProfileRender/ProfileMobxRener'
+import {observer} from 'mobx-react-lite'
 
-
-const InfoProfile=()=>{
+const InfoProfile=observer(()=>{
 
     const [IsLogin,setIsLogin]=useState(false);
     const [FirstName,setFirstName]=useState('');
     const [LastName,setLastName]=useState('');
+
+
 
     useEffect(()=>{
       if (localStorage.getItem("refresh")!== null & localStorage.getItem("refresh")!== undefined )
@@ -21,16 +24,18 @@ const InfoProfile=()=>{
       
           setFirstName(post.first_name);
           setLastName(post.last_name);
-          setIsLogin(true);
-
-        
+          setIsLogin(!IsLogin);
+          return 0;
+         
         }).catch(err => {
           setIsLogin(false);
-
         })
       }
+      else{
+        setIsLogin(false);
+      } 
 
-    },[])
+    }, [Counter.bool])
 
     return(
         <div>
@@ -53,6 +58,5 @@ const InfoProfile=()=>{
 
           </div>
     );
-}
-
+})
 export default InfoProfile

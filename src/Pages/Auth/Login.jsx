@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 import CircularProgress from '@mui/material/CircularProgress';
 import { Backdrop } from '@mui/material';
 import axios from 'axios';
-
+import Counter from '../../components/Mobx/ProfileRender/ProfileMobxRener'
 
 import './StylesAuth.css'
 import url from '../../components/backend-server-url'
 
 
 const Login = () => {
+
     const [Loading, setLoading] = useState(false); // загрузка в серевер данные
     let navigate = useNavigate();
     const [username, setUsername] = useState('');
@@ -20,6 +21,8 @@ const Login = () => {
 
     const Auth_Login = async (e) => {
         setLoading(!Loading);
+       
+
         e.preventDefault();
         try {
             await  axios.post(url.baseUrl+url.Auth.login, {
@@ -31,6 +34,7 @@ const Login = () => {
                 localStorage.setItem("access",response.data.access);
                 localStorage.setItem("refresh",response.data.refresh);
                 localStorage.setItem("user",response.data.user.username);
+                Counter.trigger();
                 navigate("/", { replace: true });
            
                 

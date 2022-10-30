@@ -10,7 +10,7 @@ import Footer from '../footer/footer';
 
 
 function IndexPage() {
- 
+
   return (
 
     <div >

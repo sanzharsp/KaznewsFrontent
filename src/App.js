@@ -1,11 +1,8 @@
 import Head from "./components/head/head"
 import './components/style/images.css'
 import React  from 'react';
-
 import Routings from './components/routing/routing'
 import {BrowserRouter as Router} from "react-router-dom";
-
-
 
 function App() {
 
@@ -27,11 +24,11 @@ function App() {
  register={'РЕГИСТРАЦИЯ'} 
  login={'АВТОРИЗАЦИЯ'}
  redactor={'РЕДАКЦИЯ'}
-
  />
 
 
 </header>
+
 <Routings /> 
  </Router>
 

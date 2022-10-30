@@ -7,7 +7,6 @@ import Container from '@mui/material/Container';
 import { Backdrop } from '@mui/material';
 import './Profile.css'
 import Logout from '../../Pages/Auth/LogOut'
-
 import Divider from '@mui/material/Divider';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
@@ -16,12 +15,11 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import UserPost from '../Profile/UserPost'
 import PersonIcon from '@mui/icons-material/Person';
+import Stack from '@mui/material/Stack';
+import Footer from '../footer/footer'
 
 
 const Profile=()=>{
-
-
-
     const[profile,setProfile]= useState([])
     const[Loading,setLoading] = useState(true)
     useEffect(()=>{
@@ -59,21 +57,27 @@ const Profile=()=>{
       :
      
         profile.map(profile =>
+          
+          <Stack spacing={5} >
           <Container>
           
-          <Card >
+          <Card variant="outlined" >
           <CardActionArea>
             
             <CardContent>
 
+            
+            
               <Typography gutterBottom variant="h5" component="h2"><PersonIcon color="primary" /> {profile.username} </Typography>
+        
               <Divider variant="middle" />
-              <Typography variant="body2" color="textSecondary" component="p">
-              <Typography variant="body2" color="textSecondary" component="p"> Имя:{profile.first_name} </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">Фамилиия:{profile.last_name}</Typography>
-              <Typography variant="body2" color="textSecondary" component="p">Отчество: {profile.surname}</Typography>
-              <Typography variant="body2" color="textSecondary" component="p">Дата создания профиля:{profile.created_at}</Typography>
-              <Typography variant="body2" color="textSecondary" component="p">email:{profile.email} </Typography>
+              
+              <Typography variant="h6" color="textSecondary"  component="h6">
+              <Typography variant="h6" color="textSecondary"  component="h6"> Имя: {profile.first_name} </Typography>
+              <Typography variant="h6" color="textSecondary"  component="h6">Фамилиия:{profile.last_name}</Typography>
+              <Typography variant="h6" color="textSecondary"  component="h6">email:{profile.email} </Typography>
+              <Typography variant="h6" color="textSecondary"  component="h6">Отчество: {profile.surname}</Typography>
+              <Typography variant="h6" color="textSecondary"  component="h6">Дата создания профиля:{profile.created_at}</Typography>
 
               </Typography>
 
@@ -86,6 +90,10 @@ const Profile=()=>{
         <UserPost/>
 
             </Container>
+    
+            <Footer/>
+
+            </Stack>
             
 
         )

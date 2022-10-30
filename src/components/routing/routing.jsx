@@ -10,9 +10,10 @@ import Redactor from '../../Pages/Redactor/Redactor'
 import LiveSearchFilter from '../Search_Post/search'
 import Profile from '../Profile/profile'
 import {useRoutes} from "react-router-dom";
+
   
-  
-const Routings = () => {
+const Routings = (props) => {
+
     let routes = useRoutes([
       { path: "/", element: <IndexPage/> },
       { path: "*" , element: <NotfoundPage/>},
@@ -22,7 +23,7 @@ const Routings = () => {
       { path: "main_news", element: <MainNewsRequest />},
       { path: "contact", element: <ContactPage />},
       { path: "register", element: <Register />},
-      { path: "login", element: <Login />},
+      { path: "login", element: <Login/>},
       { path: "redactor", element: <Redactor />},
       { path: "search", element: <LiveSearchFilter/>},
       { path: "profile", element: <Profile/>},

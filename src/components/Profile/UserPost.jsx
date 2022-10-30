@@ -6,13 +6,26 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { Backdrop } from '@mui/material';
 import Posts from "../API/posts_request"
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import EditOffTwoToneIcon from '@mui/icons-material/EditOffTwoTone';
+import Card from '@mui/material/Card';
+import Container from '@mui/material/Container';
+import { useNavigate } from "react-router-dom";
+import { Alert } from '@mui/material';
+import AlertTitle from '@mui/material/AlertTitle';
+import './Profile.css'
+import Stack from '@mui/material/Stack';
 
 
 const UserPost=()=>{
+    let navigate = useNavigate();
     const [Loading, setLoading] = useState(false); // загрузка в серевер данные
     const[Error,setError]=useState(false);
     const[Data,setData] = useState([]);
-   
+    const[lenght,setLenght]=useState(false);
+   const Redux = () =>{
+
+    navigate("/redactor", { replace: true });
+   }
     
 
     useEffect(() =>{
@@ -23,12 +36,16 @@ const UserPost=()=>{
          
             setLoading(false);
             setData(res.data);
-      
        
+            if (Data.length === 0){
+                setLenght(!lenght)
+            }
+      
+      
     
         }).
         catch((error)=>{
-            console.log(error);
+
             setLoading(false);
             setError(true);
             
@@ -63,7 +80,8 @@ const UserPost=()=>{
         </div>
         </div>
         {
-        Data.map(postlist=>
+        lenght
+        ? Data.map(postlist=>
             <Posts key={postlist.id} 
             category={postlist.category}
             id={postlist.id}  
@@ -77,7 +95,26 @@ const UserPost=()=>{
             />
             
             )
-        }
+         
+        
+        :<Container >
+        
+            <Card variant="outlined"> 
+                <Container >
+                <Stack  spacing={2}>
+                <EditOffTwoToneIcon className="center_icons" sx={{ fontSize: 40}}/>  
+                <h2 className="center" >У вас нет записей </h2>
+                <Alert severity="info">
+                <AlertTitle>Редакция</AlertTitle>
+                Если вы напишите пост то он будет расмотрен администратором от — <strong> 2 часов до 1 дня!</strong>
+                </Alert>
+                <Button variant="outlined" className="center"  onClick={Redux} >Написать пост</Button>
+                </Stack>
+                </Container>
+            </Card>
+        </Container>
+       
+    }
         </>
 
     );
