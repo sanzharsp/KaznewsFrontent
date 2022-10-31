@@ -99,7 +99,17 @@ useEffect(() =>{
              
                 :DataLatesNews.map(postlist=>
             
-                  <Posts key={postlist.id} category={postlist.category} id={postlist.id}  image={postlist.image1} title={postlist.title} content_text={postlist.context} image1={postlist.image1} author={{"Author_user":postlist.user.username,"author_first_name":postlist.user.first_name,"author_last_name":postlist.user.last_name}} published_date={postlist.date_add}/>
+                  <Posts  key={postlist.id} 
+                          category={postlist.category} 
+                          id={postlist.id}  
+                          image={postlist.image1} 
+                          title={postlist.title} 
+                          content_text={postlist.context} 
+                          image1={postlist.image1} 
+author={{"Author_user":postlist.user.username,"author_first_name":postlist.user.first_name,"author_last_name":postlist.user.last_name}}
+                          published_date={postlist.date_add} 
+                          likes={postlist.likes.length} 
+                          value={postlist.value}/>
             
         )}
       

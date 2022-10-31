@@ -33,17 +33,11 @@ const UserPost=()=>{
         setLoading(true);
         axiosApiInstance.get(`${url.baseUrl}${url.Profile.userpost}`,{refresh_token:localStorage.getItem('refresh'),}
         ).then((res)=>{
-         
             setLoading(false);
             setData(res.data);
             console.log([res.data[0]])
             if (res.data[0] === undefined) setLenght(false);
             else setLenght(true);
-
-            
-      
-      
-    
         }).
         catch((error)=>{
 
@@ -93,6 +87,8 @@ const UserPost=()=>{
             author={{"Author_user":postlist.user.username,"author_first_name":postlist.user.first_name,"author_last_name":postlist.user.last_name}} 
             published_date={postlist.date_add}
             published = {postlist.published}
+            likes={postlist.likes.length}
+            value={postlist.value}
             />
             
             )

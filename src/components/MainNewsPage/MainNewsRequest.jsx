@@ -105,7 +105,18 @@ useEffect(() =>{
      
         : DataLatesNews.map(posts => 
 
-        <Posts key={posts.id} category={posts.category} id={posts.id}  image={posts.image1} title={posts.title} content_text={posts.context} image1={posts.image1} author={{"Author_user":posts.user.username,"author_first_name":posts.user.first_name,"author_last_name":posts.user.last_name}} published_date={posts.date_add}/>
+        <Posts key={posts.id} 
+        category={posts.category} 
+        id={posts.id}  
+        image={posts.image1} 
+        title={posts.title} 
+        content_text={posts.context} 
+        image1={posts.image1} 
+        author={{"Author_user":posts.user.username,"author_first_name":posts.user.first_name,"author_last_name":posts.user.last_name}} 
+        published_date={posts.date_add} 
+        likes={posts.likes.length}
+        value={posts.value}
+        />
 
      
     

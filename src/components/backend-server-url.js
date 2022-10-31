@@ -31,6 +31,9 @@
         logout:'/api/v1/logout/',
         userpost:'/api/v1/news/get/user_post',
     },
+    Post:{
+        like:'/api/v1/news/post/like'
+    },
     gmail:'sanzharsapar1@gmail.com'
     
     }
