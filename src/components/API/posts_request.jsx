@@ -15,7 +15,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-
+import CardContent from '@mui/material/CardContent';
 import {
 
     Link,
@@ -105,7 +105,8 @@ const LikeAdd =(id)=>{
                 <p className="post-description"><div dangerouslySetInnerHTML={{ __html: props.content_text }}/></p>
                 <span className="post-date"><i className="fa fa-clock-o"></i>{props.published_date}</span>
                 <Link  to={`/post/${props.id}`} className="read-more">Читать</Link>
-                
+                <CardContent/>
+                <Divider variant="middle" />
             
                     <Stack direction="row" spacing={2}>
                     {
@@ -113,13 +114,13 @@ const LikeAdd =(id)=>{
                  
                      bool 
                      ?
-             
+                     
                     <Button variant="outlined" startIcon={<FavoriteBorderTwoToneIcon />} onClick={() =>LikeAdd(props.id)}/>
-          
+                  
                     :
-                 
+                  
                     <Button color="error" variant="outlined" startIcon={<FavoriteBorderTwoToneIcon />} onClick={() =>LikeAdd(props.id)}/>
-               
+                 
               
                     }
                         <h5>{like}</h5>
@@ -127,6 +128,9 @@ const LikeAdd =(id)=>{
                           identificated
                           ?
                           <>
+                          
+                          <CardContent/>
+                          <CardContent/>
                           <Button color="error"  startIcon={<DeleteRoundedIcon />} onClick={handleClickOpen}/>
                           <Dialog
                           open={open}
