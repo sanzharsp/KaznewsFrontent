@@ -14,8 +14,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
 import CardContent from '@mui/material/CardContent';
+
 import {
 
     Link,
@@ -26,6 +26,7 @@ import {
 
 
 const Posts= (props) => {
+  
   let navigate = useNavigate();
   const[like,SetLike]=useState(props.likes);
   const[bool,setBool]=useState(false);
@@ -107,7 +108,8 @@ const LikeAdd =(id)=>{
                 <Link  to={`/post/${props.id}`} className="read-more">Читать</Link>
                 <CardContent/>
                 <Divider variant="middle" />
-            
+                <CardContent/>
+                
                     <Stack direction="row" spacing={2}>
                     {
                       
@@ -130,7 +132,7 @@ const LikeAdd =(id)=>{
                           <>
                           
                           <CardContent/>
-                          <CardContent/>
+                           <CardContent/>
                           <Button color="error"  startIcon={<DeleteRoundedIcon />} onClick={handleClickOpen}/>
                           <Dialog
                           open={open}
@@ -155,6 +157,7 @@ const LikeAdd =(id)=>{
                             
                           </DialogActions>
                         </Dialog>
+                        
                         </>
                           :
                           <></>
@@ -163,7 +166,7 @@ const LikeAdd =(id)=>{
 
                     </Stack>
                  
-       
+                  
               </div>
               
 
