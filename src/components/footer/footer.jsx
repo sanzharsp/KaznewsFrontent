@@ -5,6 +5,7 @@ const Footer=(props)=>{
 
 
     return(
+       <div > 
       <div className="footer">
       <footer>
       <div className="waves">
@@ -29,6 +30,7 @@ const Footer=(props)=>{
       <p>@Design by Sanzhar Sapar</p>
   </footer>
 
+ </div>
  </div>
     )
 }

@@ -1,8 +1,8 @@
 /*хранилище url Django backend */
     const url={
 
-        "baseUrl":"https://kaznews.pythonanywhere.com",/* базовый url */
-        //"baseUrl":"http://127.0.0.1:8000", // тестовый url
+        //"baseUrl":"https://kaznews.pythonanywhere.com",/* базовый url */
+        "baseUrl":"http://127.0.0.1:8000", // тестовый url
         "url_get_data":"/api/v1/news/get/content/",/*загрузка по id */
         "lates_news":"/api/v1/news/get/last_news?page=",/*Последние новости*/
         "main_news":"/api/v1/news/get/main_news?page=",
@@ -32,7 +32,9 @@
         userpost:'/api/v1/news/get/user_post',
     },
     Post:{
-        like:'/api/v1/news/post/like'
+        like:'/api/v1/news/post/like',
+        identificated:'/api/v1/news/post/identificated',
+        post_delete:'/api/v1/news/post/delete'
     },
     gmail:'sanzharsapar1@gmail.com'
     

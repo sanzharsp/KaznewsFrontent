@@ -8,6 +8,14 @@ import axiosApiInstance from '../API/auth-header'
 import { useState,useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import url  from '../backend-server-url'
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
 import {
 
     Link,
@@ -21,11 +29,34 @@ const Posts= (props) => {
   let navigate = useNavigate();
   const[like,SetLike]=useState(props.likes);
   const[bool,setBool]=useState(false);
+  const[identificated,setIdentificated]=useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
   useEffect(() =>{
     if (props.value === 'Unlike') setBool(true);
     else  setBool(false);
 },[])
  
+
+useEffect(() =>{
+  axiosApiInstance.post(`${url.baseUrl}${url.Post.identificated}`,{
+    post_id: props.id,
+}).then(res => {
+  const post = res.data;
+  setIdentificated(post.post)
+ 
+}).catch(err => {
+  setIdentificated(false)
+  console.log(err);
+})
+},[])
 
 const LikeAdd =(id)=>{
   axiosApiInstance.post(`${url.baseUrl}${url.Post.like}`,{
@@ -40,8 +71,11 @@ const LikeAdd =(id)=>{
     if( err.response.status === 401)  navigate("/login", { replace: true });
     else console.log(err);
   })
-
 }
+
+  
+  
+
 
  
     return(
@@ -75,18 +109,56 @@ const LikeAdd =(id)=>{
             
                     <Stack direction="row" spacing={2}>
                     {
+                      
                  
                      bool 
                      ?
+             
                     <Button variant="outlined" startIcon={<FavoriteBorderTwoToneIcon />} onClick={() =>LikeAdd(props.id)}/>
+          
                     :
+                 
                     <Button color="error" variant="outlined" startIcon={<FavoriteBorderTwoToneIcon />} onClick={() =>LikeAdd(props.id)}/>
-                    
+               
               
                     }
-                        <div>{like}</div>
+                        <h5>{like}</h5>
+                        { 
+                          identificated
+                          ?
+                          <>
+                          <Button color="error"  startIcon={<DeleteRoundedIcon />} onClick={handleClickOpen}/>
+                          <Dialog
+                          open={open}
+                          onClose={handleClose}
+                          aria-labelledby="alert-dialog-title"
+                          aria-describedby="alert-dialog-description"
+                        >
+                          <DialogTitle id="alert-dialog-title">
+                            {"Удаление поста"}
+                          </DialogTitle>
+                          <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                            Если вы удалите пост то оно будет потеряно безвозмездно
+                            </DialogContentText>
+                          </DialogContent>
+                          <DialogActions>
+                            <Button onClick={handleClose}>Отмена</Button>
+
+                            <Button color="error" onClick={() =>{props.delete(props.id); setOpen(false);} } autoFocus>
+                              Удалить
+                            </Button>
+                            
+                          </DialogActions>
+                        </Dialog>
+                        </>
+                          :
+                          <></>
+                        }
+                        
 
                     </Stack>
+                 
        
               </div>
               

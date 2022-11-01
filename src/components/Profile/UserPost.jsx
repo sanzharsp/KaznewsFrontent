@@ -14,9 +14,11 @@ import { Alert } from '@mui/material';
 import AlertTitle from '@mui/material/AlertTitle';
 import './Profile.css'
 import Stack from '@mui/material/Stack';
+import {observer} from 'mobx-react-lite'
+import Counter from '../Mobx/ProfileRender/ProfileMobxRener'
 
 
-const UserPost=()=>{
+const UserPost = observer(()=>{
     let navigate = useNavigate();
     const [Loading, setLoading] = useState(false); // загрузка в серевер данные
     const[Error,setError]=useState(false);
@@ -39,7 +41,7 @@ const UserPost=()=>{
             if (res.data[0] === undefined) setLenght(false);
             else setLenght(true);
         }).
-        catch((error)=>{
+        catch(()=>{
 
             setLoading(false);
             setError(true);
@@ -48,8 +50,22 @@ const UserPost=()=>{
         })
     
     
-    },[])
-    
+    },[Counter.delete])
+    function handleDeleteElement (id) {
+        axiosApiInstance.delete(`${url.baseUrl}${url.Post.post_delete}/${id}`,{
+        })
+          .then(res => {
+            const post = res.data;
+            console.log(post);
+            Counter.trigger_delete();
+        
+      
+           
+          }).catch(err => {
+            if( err.response.status === 401)  navigate("/login", { replace: true });
+            else console.log(err);
+          })
+        }
     return(
         Loading
         ?
@@ -89,6 +105,7 @@ const UserPost=()=>{
             published = {postlist.published}
             likes={postlist.likes.length}
             value={postlist.value}
+            delete ={handleDeleteElement}
             />
             
             )
@@ -116,5 +133,6 @@ const UserPost=()=>{
 
     );
 }
+    )
 
 export default UserPost

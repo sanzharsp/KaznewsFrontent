@@ -6,14 +6,14 @@ import ServerError from '../Error/error'
 import url from '../backend-server-url'
 import Footer from '../footer/footer'
 import './MainNewsPage.css'
+import Counter from '../Mobx/ProfileRender/ProfileMobxRener'
+import axiosApiInstance from '../API/auth-header'
+import { useNavigate } from "react-router-dom";
 
 
 
-
-
-
-function MainNewsRequest(){
-
+const  MainNewsRequest =()=>{
+ let navigate = useNavigate();
 const[DataLatesNews,setDataLatesNews]=useState([]);
 const[currentPage,setcurrentPage]=useState(1);
 const[fetching,setfetching]=useState(true);
@@ -36,7 +36,7 @@ axios.get(`${url.baseUrl}${url.main_news}${currentPage}`)
   setloading(false);
   seterror(false);
   setcurrentPage(prevState=>prevState + 1);
-  
+
 
  
 
@@ -51,6 +51,7 @@ seterror(true);
 },[fetching])
 
 
+
 useEffect(() =>{
 
   document.addEventListener("scroll",scrollHandler)
@@ -63,7 +64,25 @@ useEffect(() =>{
 
 
 },[])
+function handleDeleteElement (id) {
+  axiosApiInstance.delete(`${url.baseUrl}${url.Post.post_delete}/${id}`,{
+  })
+    .then(res => {
+      const post = res.data;
+      console.log(post);
+      Counter.trigger_delete();
+      setDataLatesNews(prevState => prevState.filter(el => el.id !== id));
 
+     
+    }).catch(err => {
+      if( err.response.status === 401)  navigate("/login", { replace: true });
+      else console.log(err);
+    })
+  
+
+    
+  
+};
 
   const scrollHandler=(e)=>{
    
@@ -116,6 +135,7 @@ useEffect(() =>{
         published_date={posts.date_add} 
         likes={posts.likes.length}
         value={posts.value}
+        delete ={handleDeleteElement}
         />
 
      

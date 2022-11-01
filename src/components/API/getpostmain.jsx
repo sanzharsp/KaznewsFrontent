@@ -6,12 +6,14 @@ import './getpostmainload.css'
 import ServerError from '../Error/error'
 import url from '../backend-server-url'
 import Posts from './posts_request'
+import Counter from '../Mobx/ProfileRender/ProfileMobxRener'
+import axiosApiInstance from '../API/auth-header'
+import { useNavigate } from "react-router-dom";
 
 
 
-
-function PostListItem(){
-
+const PostListItem = ()=>{
+  let navigate = useNavigate();
 const[DataLatesNews,setDataLatesNews]=useState([]);
 const[currentPage,setcurrentPage]=useState(1);
 const[fetching,setfetching]=useState(true);
@@ -48,7 +50,7 @@ seterror(true);
   }
 }).finally(()=>setfetching(false))
 }
-},[fetching])
+},[fetching,])
 
 
 useEffect(() =>{
@@ -64,7 +66,25 @@ useEffect(() =>{
 
 },[])
 
+function handleDeleteElement (id) {
+  axiosApiInstance.delete(`${url.baseUrl}${url.Post.post_delete}/${id}`,{
+  })
+    .then(res => {
+      const post = res.data;
+      console.log(post);
+      Counter.trigger_delete();
+      setDataLatesNews(prevState => prevState.filter(el => el.id !== id));
 
+     
+    }).catch(err => {
+      if( err.response.status === 401)  navigate("/login", { replace: true });
+      else console.log(err);
+    })
+  
+
+    
+  
+};
   
     const scrollHandler=(e)=>{
      
@@ -109,7 +129,9 @@ useEffect(() =>{
 author={{"Author_user":postlist.user.username,"author_first_name":postlist.user.first_name,"author_last_name":postlist.user.last_name}}
                           published_date={postlist.date_add} 
                           likes={postlist.likes.length} 
-                          value={postlist.value}/>
+                          value={postlist.value}
+                          delete ={handleDeleteElement}
+                          />
             
         )}
       
