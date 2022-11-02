@@ -17,7 +17,7 @@ import UserPost from '../Profile/UserPost'
 import PersonIcon from '@mui/icons-material/Person';
 import Stack from '@mui/material/Stack';
 import Footer from '../footer/footer'
-
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 const Profile=()=>{
     const[profile,setProfile]= useState([])
@@ -55,34 +55,61 @@ const Profile=()=>{
 </Backdrop>
       </Container>
       :
-     
+              <>
+
+              <CardContent/>
+      
+              {
         profile.map(profile =>
           
           <Stack spacing={5} >
           <Container>
           
           <Card variant="outlined" >
-          <CardActionArea>
+      
             
             <CardContent>
 
+          
             
-            
-              <Typography gutterBottom variant="h5" component="h2"><PersonIcon color="primary" /> {profile.username} </Typography>
+              <Typography sx={{fontFamily:  "Segoe UI"}} gutterBottom variant="h5" component="h2"> {profile.username} <PersonIcon color="error" /> </Typography>
         
               <Divider variant="middle" />
-              
-              <Typography variant="h6" color="textSecondary"  component="h6">
-              <Typography variant="h6" color="textSecondary"  component="h6"> Имя: {profile.first_name} </Typography>
-              <Typography variant="h6" color="textSecondary"  component="h6">Фамилиия:{profile.last_name}</Typography>
-              <Typography variant="h6" color="textSecondary"  component="h6">email:{profile.email} </Typography>
-              <Typography variant="h6" color="textSecondary"  component="h6">Отчество: {profile.surname}</Typography>
-              <Typography variant="h6" color="textSecondary"  component="h6">Дата создания профиля:{profile.created_at}</Typography>
+              <CardContent/>
 
-              </Typography>
+              <Card variant="outlined" >
+              <CardContent>
+              <Typography sx={{fontFamily:  "Segoe UI"}} variant="h6" component="div" > Имя: {profile.first_name} </Typography>
+              </CardContent>
+              </Card>
+
+              <Card variant="outlined" >
+              <CardContent>
+              <Typography sx={{fontFamily:  "Segoe UI"}} variant="h6" component="div">Фамилиия: {profile.last_name}</Typography>
+              </CardContent>
+              </Card>
+              
+              <Card variant="outlined" >
+              <CardContent>
+              <Typography sx={{fontFamily:  "Segoe UI"}} variant="h6" component="div">email: {profile.email} </Typography>
+              </CardContent>
+              </Card>
+
+              <Card variant="outlined" >
+              <CardContent>
+              <Typography sx={{fontFamily:  "Segoe UI"}} variant="h6" component="div">Отчество: {profile.surname}</Typography>
+              </CardContent>
+              </Card>
+
+              <Card variant="outlined" >
+              <CardContent>
+              <Typography sx={{fontFamily:  "Segoe UI"}} variant="h6" component="div">Дата создания профиля: {profile.created_at}</Typography>
+              </CardContent>
+              </Card>
+             
 
             </CardContent>
-          </CardActionArea>
+     
           <CardActions>
             <Logout/>
           </CardActions>
@@ -97,7 +124,8 @@ const Profile=()=>{
             
 
         )
-       
+              }
+        </>
         
     );
 }

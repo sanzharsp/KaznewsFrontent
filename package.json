@@ -20,6 +20,7 @@
     "mobx-react-lite": "^3.4.0",
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.8",
+    "react-clock": "^3.1.0",
     "react-contenteditable": "^3.3.6",
     "react-dom": "^18.2.0",
     "react-images-uploading": "^3.1.7",

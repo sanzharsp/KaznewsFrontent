@@ -9,6 +9,8 @@ import Checkbox from '@mui/material/Checkbox';
 
 import CircularProgress from '@mui/material/CircularProgress';
 import { Backdrop } from '@mui/material';
+import Counter from '../../components/Mobx/ProfileRender/ProfileMobxRener'
+
 
 const Register = () => {
     const [Loading,setLoading] = useState(false); // загрузка в серевер данные
@@ -75,6 +77,7 @@ const Register = () => {
                 localStorage.setItem("access",response.data.access);
                 localStorage.setItem("refresh",response.data.refresh);
                 localStorage.removeItem("captcha_key")
+                Counter.trigger();
                 navigate("/", { replace: true });
            
                 
