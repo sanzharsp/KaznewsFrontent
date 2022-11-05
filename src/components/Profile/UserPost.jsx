@@ -16,6 +16,8 @@ import './Profile.css'
 import Stack from '@mui/material/Stack';
 import {observer} from 'mobx-react-lite'
 import Counter from '../Mobx/ProfileRender/ProfileMobxRener'
+import Images from '../../images/123734-modern-digital-advertise.gif'
+import CardContent from '@mui/material/CardContent';
 
 
 const UserPost = observer(()=>{
@@ -87,48 +89,64 @@ const UserPost = observer(()=>{
         <>  
         <div  className="Container">
         <div className="container_about">
+      
+        <Card >
+        <CardContent>
         <h2 ><LocalFireDepartmentIcon color="primary"/>Ваши редакций <LocalFireDepartmentIcon color="primary"/></h2> 
-        </div>
-        </div>
-        {
-        lenght
-        ? Data.map(postlist=>
-            <Posts key={postlist.id} 
-            category={postlist.category}
-            id={postlist.id}  
-            image={postlist.image1} 
-            title={postlist.title}
-            content_text={postlist.context} 
-            image1={postlist.image1}
-            author={{"Author_user":postlist.user.username,"author_first_name":postlist.user.first_name,"author_last_name":postlist.user.last_name}} 
-            published_date={postlist.date_add}
-            published = {postlist.published}
-            likes={postlist.likes.length}
-            value={postlist.value}
-            delete ={handleDeleteElement}
-            />
+        <img style={{
+     
+          display: "block",
+          width: "50%",
+          marginLeft:"auto",
+          marginRight:"auto",
+         }} src={Images} />
+
+         {
+            lenght
+            ? Data.map(postlist=>
+                <Posts key={postlist.id} 
+                category={postlist.category}
+                id={postlist.id}  
+                image={postlist.image1} 
+                title={postlist.title}
+                content_text={postlist.context} 
+                image1={postlist.image1}
+                author={{"Author_user":postlist.user.username,"author_first_name":postlist.user.first_name,"author_last_name":postlist.user.last_name}} 
+                published_date={postlist.date_add}
+                published = {postlist.published}
+                likes={postlist.likes.length}
+                value={postlist.value}
+                delete ={handleDeleteElement}
+                />
+                
+                )
+             
             
-            )
-         
-        
-        :<Container >
-        
-            <Card variant="outlined"> 
-                <Container >
-                <Stack  spacing={2}>
-                <EditOffTwoToneIcon className="center_icons" sx={{ fontSize: 40}}/>  
-                <h2 className="center" >У вас нет записей </h2>
-                <Alert severity="info">
-                <AlertTitle>Редакция</AlertTitle>
-                Если вы напишите пост то он будет расмотрен администратором от — <strong> 2 часов до 1 дня!</strong>
-                </Alert>
-                <Button variant="outlined" className="center"  onClick={Redux} >Написать пост</Button>
-                </Stack>
-                </Container>
-            </Card>
-        </Container>
+            :
+            
+                <Card variant="outlined"> 
+                    <Container >
+                    <Stack  spacing={2}>
+                    <EditOffTwoToneIcon className="center_icons" sx={{ fontSize: 40}}/>  
+                    <h2 className="center" >У вас нет записей </h2>
+                    <Alert severity="info">
+                    <AlertTitle>Редакция</AlertTitle>
+                    Если вы напишите пост то он будет расмотрен администратором от — <strong> 2 часов до 1 дня!</strong>
+                    </Alert>
+                    <Button variant="outlined" className="center"  onClick={Redux} >Написать пост</Button>
+                    </Stack>
+                    </Container>
+                </Card>
        
-    }
+           
+        }
+        </CardContent>
+        </Card>
+   
+        
+        </div>
+        </div>
+        
         </>
 
     );
