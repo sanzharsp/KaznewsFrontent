@@ -7,7 +7,6 @@ import IconButton from '@mui/material/IconButton';
 import {Link} from "react-router-dom";
 import InfoProfile from '../Profile/info-profile'
 
-
 /*Шапка и роутинг сайта */
 
 const Head=(props)=>{
@@ -50,6 +49,8 @@ const Head=(props)=>{
     <Link  to={"contact"} className="menu-item tegA">{props.contact}</Link>
     <Link  to={"register"} className="menu-item tegA">{props.register}</Link>
     <Link  to={"login"} className="menu-item tegA">{props.login}</Link>
+    
+
   </Menu>
  
 

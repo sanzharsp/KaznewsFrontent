@@ -15,9 +15,11 @@ import Typography from '@mui/material/Typography';
 import UserPost from '../Profile/UserPost'
 import Stack from '@mui/material/Stack';
 import Footer from '../footer/footer'
+import { Box, Clock } from 'grommet';
 
 
 const Profile=()=>{
+ 
     const[profile,setProfile]= useState([])
     const[Loading,setLoading] = useState(true)
     useEffect(()=>{
@@ -38,6 +40,7 @@ const Profile=()=>{
         
   
       },[])
+
     return(
  
       Loading
@@ -54,8 +57,19 @@ const Profile=()=>{
       </Container>
       :
               <>
-     
-     
+              
+              <CardContent/>
+              <Box gap='large'>
+              <Box align='center' gap='medium'>
+          
+                <Box round='large' background='#2E2F45' pad='small'>
+                  <Clock type='digital' size='large'   />
+                </Box>
+              </Box>
+       
+      
+            </Box>
+          
       
      
               <CardContent/>
@@ -67,14 +81,16 @@ const Profile=()=>{
           <Container>
           
           <Card >
-      
+    
+  
+       
             
             <CardContent>
         
-        
-         
+  
             
             <CardContent>
+            
             <Typography sx={{fontFamily:  "Segoe UI"}} gutterBottom variant="h5" component="h2"> {profile.username}  </Typography>
         
             <Divider variant="middle" />
@@ -99,6 +115,9 @@ const Profile=()=>{
     
             <Typography sx={{fontFamily:  "Segoe UI"}} variant="h6" component="div">Дата создания профиля: {profile.created_at}</Typography>
   
+            <Typography sx={{fontFamily:  "Segoe UI"}} variant="h6" component="div">Прошло времени от создания 
+       
+            </Typography>
             </CardContent>
            
       
