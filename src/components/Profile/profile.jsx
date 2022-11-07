@@ -69,7 +69,8 @@ const Profile=()=>{
        
       
             </Box>
-          
+            <CardContent/>
+           
       
      
               <CardContent/>
@@ -129,6 +130,7 @@ const Profile=()=>{
             <Logout/>
           </CardActions>
         </Card>
+        
         
         <UserPost/>
 
